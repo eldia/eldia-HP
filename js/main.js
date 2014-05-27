@@ -130,11 +130,17 @@ if (!Function.prototype.bind) {
         return div.getElementsByTagName('img')[0];
     };
 
+    RSS.prototype.getText = function (content) {
+        var div = doc.createElement('div');
+        div.innerHTML = content;
+        return div.textContent;
+    };
+
     RSS.prototype.renderPost = function (entry) {
         var title   = entry.title,
             content = entry.content,
-            text    = entry.contentSnippet,
             link    = entry.link,
+            text    = this.getText(content),
             image   = this.getImage(content),
             li      = doc.createElement('li');
 
