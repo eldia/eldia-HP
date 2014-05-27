@@ -120,6 +120,7 @@ if (!Function.prototype.bind) {
             list.appendChild(this.renderPost(data.feed.entries[i]));
         }
 
+        container.innerHTML = '';
         container.appendChild(list);
     };
 
@@ -129,7 +130,7 @@ if (!Function.prototype.bind) {
         return div.getElementsByTagName('img')[0];
     };
 
-    RSS.prototype.renderPost = function (container, entry) {
+    RSS.prototype.renderPost = function (entry) {
         var title   = entry.title,
             content = entry.content,
             text    = entry.contentSnippet,
